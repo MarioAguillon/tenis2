@@ -1,0 +1,37 @@
+.main-header {
+  background-color: #3b82f6; /* El azul de tu diseño */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navigation a:hover, .active-link {
+  text-decoration: underline;
+  color: #d1d5db;
+}
+
+.cart-container {
+  font-weight: bold;
+  cursor: pointer;
+}

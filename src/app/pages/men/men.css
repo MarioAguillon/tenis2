@@ -1,0 +1,108 @@
+/* Contenedor General */
+.catalog-page {
+  width: 100%;
+  padding: 40px 5%;
+  background-color: #fff;
+}
+
+.catalog-wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Banner de la izquierda */
+.category-banner {
+  flex: 0 0 300px; /* Tamaño fijo para que no empuje a los demás */
+  text-align: center;
+}
+
+.category-banner img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover; /* Esto evita que la imagen se estire feo */
+  border-radius: 4px;
+}
+
+.category-title {
+  margin-top: 15px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+/* Cuadrícula de productos (Derecha) */
+.products-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas exactas */
+  gap: 20px;
+}
+
+/* Tarjeta individual */
+.shoe-card {
+  border: 1px solid #eaeaea;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  transition: 0.3s;
+}
+
+.shoe-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Contenedor de la imagen del tenis */
+.shoe-img-box {
+  width: 100%;
+  height: 150px; /* Altura controlada para que no salgan gigantes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.shoe-img-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Obliga al tenis a caber en el cuadrito */
+}
+
+/* Info y Botones */
+.shoe-price {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.shoe-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.btn-add-cart {
+  background: black;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.cart-emoji {
+  font-size: 1.2rem;
+}
+
+/* Responsivo para tablets */
+@media (max-width: 1100px) {
+  .products-container { grid-template-columns: repeat(2, 1fr); }
+  .catalog-wrapper { flex-direction: column; }
+  .category-banner { width: 100%; }
+}

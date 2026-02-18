@@ -1,0 +1,38 @@
+.footer-container {
+  background-color: #1a4a73; /* Un azul más oscuro que el del header */
+  color: white;
+  padding: 20px 0;
+  width: 100%;
+  margin-top: auto; /* Esto ayuda a que siempre se vaya al fondo */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.3s;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}

@@ -1,0 +1,27 @@
+<div class="catalog-page">
+  <div class="catalog-wrapper">
+    
+    <aside class="category-banner">
+      <img src="img/categoria-ninos.jpg" alt="Banner">
+      <h2 class="category-title">NIÑOS</h2>
+    </aside>
+
+    <main class="products-container">
+      @for (i of [1,2,3,4,5,6,7,8]; track i) {
+        <div class="shoe-card">
+          <div class="shoe-img-box">
+            <img src="img/zapato-mini1.jpg" alt="Tenis">
+          </div>
+          <div class="shoe-info">
+            <span class="shoe-price">$ 250.000</span>
+            <div class="shoe-footer">
+              <button class="btn-add-cart">AGREGAR</button>
+              <span class="cart-emoji">🛒</span>
+            </div>
+          </div>
+        </div>
+      }
+    </main>
+
+  </div>
+</div>

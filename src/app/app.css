@@ -1,0 +1,10 @@
+/* Esto hace que el cuerpo de la página ocupe todo el alto */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Esto empuja el footer hacia abajo del todo */
+}
