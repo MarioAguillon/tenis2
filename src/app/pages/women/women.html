@@ -1,10 +1,8 @@
 <div class="catalog-page">
   <div class="catalog-wrapper">
     <aside class="category-banner">
-      <div class="banner-content">
-        <img src="img/categoria-mujer.jpg" alt="Categoría Mujer">
-        <h2 class="category-title">MUJER</h2>
-      </div>
+      <img src="/img/categoria-mujer.jpg" alt="Moda Mujer">
+      <h2 class="category-title">MUJER</h2>
     </aside>
 
     <main class="products-container">
@@ -13,13 +11,15 @@
           <div class="shoe-img-box">
             <img [src]="tenis.img" [alt]="tenis.nombre">
           </div>
-          <div class="shoe-info">
-            <h3 class="shoe-name">{{ tenis.nombre }}</h3>
-            <p class="shoe-price">$ {{ tenis.precio }}</p>
-            <div class="shoe-footer">
-              <button class="btn-add-cart" (click)="irAPedidos()">AGREGAR</button>
-              <span class="cart-emoji" (click)="irAPedidos()">🛒</span>
-            </div>
+          
+          <h3 class="shoe-name">{{ tenis.nombre }}</h3>
+          <span class="shoe-price">${{ tenis.precio }}</span>
+
+          <div class="shoe-footer">
+            <button class="btn-add-cart" (click)="irAPedidos(tenis)">
+              AGREGAR
+            </button>
+            <span class="cart-mini-icon">🛒</span>
           </div>
         </div>
       }

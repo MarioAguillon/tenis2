@@ -1,20 +1,27 @@
-<div class="new-container">
-  <header class="new-header">
+<div class="catalog-page">
+  <div class="new-hero-header">
     <h1>LO NUEVO EN DUO SPORT</h1>
-    <p>Descubre la tecnología de punta para tus pies</p>
-  </header>
+    <p>La última tecnología para tus pies</p>
+  </div>
 
-  <main class="productos-contenedor">
-    @for (item of novedades; track item.id) {
-      <div class="zapato-card">
-        <div class="badge">NUEVO</div>
-        <img [src]="item.img" [alt]="item.nombre">
-        <h3>{{ item.nombre }}</h3>
-        <span class="precio">$ {{ item.precio }}</span>
-        <button class="btn-comprar" (click)='irAPedidos()'>
-          COMPRAR AHORA
-        </button>
-      </div>
-    }
-  </main>
+  <div class="catalog-wrapper-centered">
+    <main class="products-grid-new">
+      @for (item of novedades; track item.id) {
+        <div class="shoe-card-new">
+          <div class="badge-new">NUEVO</div>
+          <div class="shoe-img-box">
+            <img [src]="item.img" [alt]="item.nombre">
+          </div>
+          <div class="shoe-info">
+            <h3 class="shoe-name">{{ item.nombre }}</h3>
+            <p class="shoe-price">$ {{ item.precio }}</p>
+            <div class="shoe-footer">
+              <button class="btn-add-cart" (click)="irAPedidos(item)">COMPRAR AHORA</button>
+              <span class="cart-emoji" (click)="irAPedidos(item)">🛒</span>
+            </div>
+          </div>
+        </div>
+      }
+    </main>
+  </div>
 </div>

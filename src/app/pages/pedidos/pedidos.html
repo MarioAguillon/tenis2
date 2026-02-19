@@ -1,31 +1,46 @@
-<div class="pedidos-container">
-  <h2>Resumen de tu Pedido</h2>
-
-  <div *ngIf="productos.length > 0; else vacio">
-    <div class="lista-productos">
-      <div class="item-pedido" *ngFor="let p of productos">
-        <img [src]="p.img" width="60">
-        <div class="info">
-          <p>{{ p.nombre }}</p>
-          <span>$ {{ p.precio }}</span>
-        </div>
-        <button class="btn-borrar" (click)="quitarTenis(p)">❌</button>
-      </div>
+<div class="pedidos-page">
+  <div class="resumen-seccion">
+    <h2>Tu Carrito de Compras</h2>
+    
+    <div *ngIf="productos.length === 0" class="vacio-msg">
+      No has añadido tenis todavía.
     </div>
 
-    <div class="total-seccion">
-      <h3>Total a pagar: ${{ total.toLocaleString('es-CO') }}</h3>
+    <div *ngFor="let p of productos" class="item-fila">
+      <img [src]="p.img" width="50">
+      <span>{{ p.nombre }}</span>
+      <strong>$ {{ p.precio }}</strong>
+      <button (click)="quitarTenis(p)" class="btn-borrar">✖</button>
     </div>
 
-    <div class="formulario">
-      <input type="text" [(ngModel)]="nombre" placeholder="Nombre completo">
-      <input type="text" [(ngModel)]="direccion" placeholder="Dirección">
-      <input type="text" [(ngModel)]="telefono" placeholder="Teléfono">
-      <button class="btn-finalizar" (click)="hacerPedido()">COMPRAR AHORA</button>
+    <div class="total-caja" *ngIf="productos.length > 0">
+      <h3>Total a Pagar: $ {{ total.toLocaleString('es-CO') }}</h3>
     </div>
   </div>
 
-  <ng-template #vacio>
-    <p>No hay productos en el carrito.</p>
-  </ng-template>
+  <div class="formulario-seccion">
+    <h3>Datos de Envío</h3>
+    
+    <div class="campo">
+      <input type="text" [(ngModel)]="nombre" placeholder="Nombre completo">
+      <small class="error-msg" *ngIf="intentoEnvio && !nombre">El nombre es requerido para la factura.</small>
+    </div>
+
+    <div class="campo">
+      <input type="text" [(ngModel)]="direccion" placeholder="Dirección de entrega">
+      <small class="error-msg" *ngIf="intentoEnvio && !direccion">La dirección es necesaria para el envío.</small>
+    </div>
+
+    <div class="campo">
+      <input type="text" [(ngModel)]="telefono" placeholder="Teléfono de contacto">
+      <small class="error-msg" *ngIf="intentoEnvio && !telefono">Ingresa un número de teléfono válido.</small>
+    </div>
+
+    <button (click)="hacerPedido()" class="btn-confirmar">CONFIRMAR COMPRA</button>
+  </div>
+
+  <div *ngIf="ordenGenerada" class="debug-json">
+    
+   
+  </div>
 </div>

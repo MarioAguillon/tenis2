@@ -4,34 +4,37 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  private items: any[] = [];
+  private carrito: any[] = [];
 
-  constructor() {}
+  constructor() { }
 
-  agregarProducto(producto: any) {
-    // Guardamos el tenis con un ID único para poder borrarlo luego
-    this.items.push({ ...producto, instanceId: Date.now() + Math.random() });
+  // Esta función arregla el error en contacto.ts (imagen 991c1c)
+  obtenerCarrito() {
+    return this.carrito;
   }
 
+  // Esta función arregla el error en pedidos.ts (imagen 98c8ed)
   obtenerItems() {
-    return this.items;
+    return this.carrito;
+  }
+
+  agregarProducto(producto: any) {
+    this.carrito.push(producto);
   }
 
   eliminarProducto(producto: any) {
-    this.items = this.items.filter(item => item.instanceId !== producto.instanceId);
-    return this.items;
-  }
-
-  obtenerTotal() {
-    return this.items.reduce((acc, item) => {
-      // Convierte "150.000" en número 150000 para sumar
-      const precioNumerico = parseFloat(item.precio.replace(/\./g, ''));
-      return acc + precioNumerico;
-    }, 0);
+    this.carrito = this.carrito.filter(item => item.id !== producto.id);
   }
 
   limpiarCarrito() {
-    this.items = [];
-    return this.items;
+    this.carrito = [];
+  }
+
+  obtenerTotal() {
+    return this.carrito.reduce((acc, item) => {
+      // Quitamos el punto del precio "310.000" para poder sumar
+      const precioNumerico = Number(item.precio.replace(/\./g, ''));
+      return acc + precioNumerico;
+    }, 0);
   }
 }

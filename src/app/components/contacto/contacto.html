@@ -1,0 +1,39 @@
+<div class="contacto-page">
+  <div class="form-card">
+    <h2>VALIDACIÓN DE COMPRA</h2>
+    
+    <form [formGroup]="formulario" (ngSubmit)="generarJson()">
+      
+      <div class="input-group">
+        <label>Nombre:</label>
+        <input type="text" formControlName="nombre" [class.is-invalid]="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched">
+        <span class="error-text" *ngIf="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched">
+          El nombre es obligatorio (mínimo 3 letras).
+        </span>
+      </div>
+
+      <div class="input-group">
+        <label>Email:</label>
+        <input type="email" formControlName="email" [class.is-invalid]="formulario.get('email')?.invalid && formulario.get('email')?.touched">
+        <span class="error-text" *ngIf="formulario.get('email')?.invalid && formulario.get('email')?.touched">
+          Ingresa un correo electrónico válido.
+        </span>
+      </div>
+
+      <div class="input-group">
+        <label>Teléfono:</label>
+        <input type="text" formControlName="telefono" [class.is-invalid]="formulario.get('telefono')?.invalid && formulario.get('telefono')?.touched">
+        <span class="error-text" *ngIf="formulario.get('telefono')?.invalid && formulario.get('telefono')?.touched">
+          Solo se permiten números.
+        </span>
+      </div>
+
+      <button type="submit" class="btn-enviar">GENERAR ORDEN (JSON)</button>
+    </form>
+
+    <div *ngIf="ordenFinal" class="json-result">
+      <h3>JSON Generado para el Profesor:</h3>
+      <pre>{{ ordenFinal | json }}</pre>
+    </div>
+  </div>
+</div>

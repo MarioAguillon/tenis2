@@ -1,111 +1,132 @@
-/* VARIABLES GLOBALES */
 :root {
-  --color-primario: #007bff;
-  --color-acento: #ff6600;
-  --color-texto: #333;
-  --color-fondo: #f9f9f9;
+  --color-primario: #007bff;    
+  --color-acento: #ff6600; 
+  --color-texto-boton: #ffffff; 
 }
 
-.new-container {
-  background-color: var(--color-fondo);
-  padding: 40px 0;
+.catalog-page {
+  width: 100%;
+  padding: 40px 5%;
+  background-color: #fdfdfd;
 }
 
-.new-header {
+.new-hero-header {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.new-header h1 {
-  font-weight: 900;
-  color: var(--color-texto);
-  letter-spacing: 2px;
+.new-hero-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #222;
 }
 
-/* GRID DINÁMICO */
-.productos-contenedor {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  padding: 0 5%;
+/* Contenedor que centra los productos */
+.catalog-wrapper-centered {
   max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
-/* TARJETA */
-.zapato-card {
-  background: white;
-  border-radius: 20px;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  transition: all 0.4s ease;
+/* GRILLA: Aquí definimos que sean más grandes */
+.products-grid-new {
+  display: grid;
+  /* El "minmax" hace que no bajen de 280px y crezcan si hay espacio */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 30px;
+  width: 100%;
+}
+
+.shoe-card-new {
   position: relative;
+  border: 1px solid #eee;
+  border-radius: 15px; /* Bordes un poco más redondeados para que luzcan más */
+  padding: 25px; /* Más padding para que se vea más grande el contenedor */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  background: white;
+  transition: all 0.3s ease;
+  min-height: 420px; /* Más altura que las de hombre/mujer */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
-.zapato-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 15px 35px rgba(0,123,255,0.15);
+.shoe-card-new:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border-color: var(--color-primario);
 }
 
-.badge {
+.badge-new {
   position: absolute;
   top: 15px;
-  left: 15px;
+  right: 15px;
   background: var(--color-acento);
   color: white;
   padding: 5px 12px;
   border-radius: 20px;
-  font-size: 0.7rem;
   font-weight: bold;
+  font-size: 0.8rem;
 }
 
-.zapato-card img {
+.shoe-img-box {
   width: 100%;
-  height: 200px;
+  height: 200px; /* Imagen más grande */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.shoe-img-box img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  margin-bottom: 20px;
 }
 
-.zapato-card h3 {
-  font-size: 1.1rem;
+.shoe-name {
+  font-size: 1.2rem; /* Texto más grande */
+  font-weight: 700;
+  text-align: center;
   margin-bottom: 10px;
+  color: #333;
 }
 
-.precio {
-  font-size: 1.4rem;
+.shoe-price {
   font-weight: 800;
-  color: var(--color-acento); /* NARANJA */
+  font-size: 1.4rem; /* Precio más llamativo */
+  text-align: center;
+  color: var(--color-acento);
   margin-bottom: 20px;
 }
 
-.btn-comprar {
-  background-color: var(--color-primario); /* AZUL */
+.shoe-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.btn-add-cart {
+  background: var(--color-primario);
   color: white;
   border: none;
-  padding: 12px 25px;
-  border-radius: 30px;
-  cursor: pointer;
+  padding: 12px 20px;
   font-weight: bold;
-  transition: 0.3s;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1;
+  margin-right: 15px;
 }
 
-.btn-comprar:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+.cart-emoji {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* RESPONSIVO */
-@media (max-width: 768px) {
-  .productos-contenedor {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .new-header h1 {
-    font-size: 1.5rem;
+@media (max-width: 600px) {
+  .products-grid-new {
+    grid-template-columns: 1fr; /* Uno solo por fila en celulares */
   }
 }

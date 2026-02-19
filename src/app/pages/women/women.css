@@ -1,12 +1,11 @@
-/* 1. PALETA DE COLORES - Solo cambia estos códigos para cambiar toda la web */
+/* VARIABLES GLOBALES */
 :root {
-  --color-primario: #007bff;    /* Azul deportivo */
-  --color-acento: #ff6600;      /* Naranja para el precio */
-  --color-texto-boton: #ffffff; /* Blanco */
-  --color-hover: #0056b3;       /* Azul oscuro */
+  --color-primario: #007bff;    /* Azul Hombre */
+  --color-acento: #28a745;      
+  --color-texto-boton: #ffffff; 
+  --color-hover: #0056b3;       
 }
 
-/* 2. ESTRUCTURA (Tu diseño original que sí funciona) */
 .catalog-page {
   width: 100%;
   padding: 40px 5%;
@@ -16,37 +15,46 @@
 .catalog-wrapper {
   display: flex;
   gap: 30px;
-  align-items: flex-start;
+  align-items: flex-start; 
   max-width: 1300px;
   margin: 0 auto;
 }
 
+/* BANNER LATERAL - EFECTO DESLIZANTE (STICKY) */
 .category-banner {
-  flex: 0 0 300px;
+  flex: 0 0 300px; 
+  position: -webkit-sticky; /* Soporte para Safari */
+  position: sticky;
+  top: 80px; /* Ajusta esto según el alto de tu header */
   text-align: center;
+  align-self: flex-start;
 }
 
 .category-banner img {
   width: 100%;
-  height: 550px;
-  object-fit: cover;
-  border-radius: 4px;
+  height: 650px; /* Altura larga igual que Hombre/Niños */
+  object-fit: cover; /* Hace que la imagen llene el espacio sin deformarse */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .category-title {
   margin-top: 15px;
   font-weight: 800;
   letter-spacing: 3px;
-  color: var(--color-primario); /* Título en azul */
+  color: var(--color-primario);
+  text-transform: uppercase;
 }
 
+/* GRILLA DE PRODUCTOS */
 .products-container {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); 
   gap: 20px;
 }
 
+/* TARJETA DE ZAPATILLA */
 .shoe-card {
   border: 1px solid #eaeaea;
   padding: 15px;
@@ -54,16 +62,18 @@
   flex-direction: column;
   background: white;
   transition: 0.3s;
+  height: 400px; /* Altura fija para alinear todo */
+  border-radius: 10px;
 }
 
 .shoe-card:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transform: translateY(-5px); /* Pequeño salto hacia arriba */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
 }
 
 .shoe-img-box {
   width: 100%;
-  height: 150px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,13 +86,13 @@
   object-fit: contain;
 }
 
-/* 3. APLICACIÓN DE COLORES DINÁMICOS */
-
 .shoe-name {
-  color: #333; /* Mantener nombre legible */
-  font-size: 0.95rem;
+  color: #333;
+  font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 5px;
+  text-align: center;
+  height: 40px;
 }
 
 .shoe-price {
@@ -90,42 +100,46 @@
   font-weight: 800;
   font-size: 1.1rem;
   margin: 10px 0;
-  text-align: left;
-  color: var(--color-acento); /* PRECIO NARANJA */
+  text-align: center;
+  color: #ff6600; /* Color naranja para destacar */
 }
 
+/* EL BOTÓN AZUL (FORZADO) */
 .shoe-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
+  margin-top: auto; /* Empuja el botón al fondo */
 }
 
-.btn-add-cart {
-  background: var(--color-primario); /* BOTÓN AZUL */
-  color: var(--color-texto-boton);
-  border: none;
-  padding: 8px 14px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: 0.3s;
+button.btn-add-cart {
+  background-color: #007bff !important; /* Azul Rey */
+  color: white !important;
+  border: none !important;
+  padding: 12px 10px !important;
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  border-radius: 6px !important;
+  transition: 0.3s !important;
+  flex: 1;
+  text-transform: uppercase;
 }
 
-.btn-add-cart:hover {
-  background: var(--color-hover);
+button.btn-add-cart:hover {
+  background-color: #0056b3 !important;
+  transform: scale(1.02);
 }
 
-.cart-emoji {
-  font-size: 1.3rem;
-  color: var(--color-primario); /* CARRITO AZUL */
-  cursor: pointer;
+.cart-mini-icon {
+  margin-left: 10px;
+  font-size: 1.2rem;
 }
 
-/* 4. RESPONSIVO */
+/* AJUSTE PARA PANTALLAS PEQUEÑAS */
 @media (max-width: 1100px) {
   .products-container { grid-template-columns: repeat(2, 1fr); }
-  .catalog-wrapper { flex-direction: column; }
-  .category-banner { width: 100%; }
+  .catalog-wrapper { flex-direction: column; align-items: center; }
+  .category-banner { position: static; width: 100%; margin-bottom: 20px; }
+  .category-banner img { height: 300px; }
 }
