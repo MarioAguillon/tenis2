@@ -1,27 +1,28 @@
 <div class="catalog-page">
   <div class="catalog-wrapper">
-    
     <aside class="category-banner">
-      <img src="img/categoria-mujer.jpg" alt="Banner">
-      <h2 class="category-title">MUJER</h2>
+      <div class="banner-content">
+        <img src="img/categoria-mujer.jpg" alt="Categoría Mujer">
+        <h2 class="category-title">MUJER</h2>
+      </div>
     </aside>
 
     <main class="products-container">
-      @for (i of [1,2,3,4,5,6,7,8]; track i) {
+      @for (tenis of zapatillas; track tenis.id) {
         <div class="shoe-card">
           <div class="shoe-img-box">
-            <img src="img/zapato-mini1.jpg" alt="Tenis">
+            <img [src]="tenis.img" [alt]="tenis.nombre">
           </div>
           <div class="shoe-info">
-            <span class="shoe-price">$ 250.000</span>
+            <h3 class="shoe-name">{{ tenis.nombre }}</h3>
+            <p class="shoe-price">$ {{ tenis.precio }}</p>
             <div class="shoe-footer">
-              <button class="btn-add-cart">AGREGAR</button>
-              <span class="cart-emoji">🛒</span>
+              <button class="btn-add-cart" (click)="irAPedidos()">AGREGAR</button>
+              <span class="cart-emoji" (click)="irAPedidos()">🛒</span>
             </div>
           </div>
         </div>
       }
     </main>
-
   </div>
 </div>

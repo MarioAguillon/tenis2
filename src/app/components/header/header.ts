@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Para directivas básicas
-import { RouterModule } from '@angular/router'; // ¡ESTE ES EL IMPORTANTE!
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  standalone: true, // Asegúrate de que diga esto si no lo tiene
-  imports: [CommonModule, RouterModule], // <--- Agregamos estos dos aquí
-  templateUrl: './header.html',
-  styleUrl: './header.css',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './header.html', // Usará tu HTML
+  styleUrl: './header.css'      // Usará tu CSS original
 })
-export class Header {
-  // Aquí puedes crear lógica después, por ahora está perfecto así.
-}
+export class Header { }

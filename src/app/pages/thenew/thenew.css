@@ -1,47 +1,111 @@
-.productos-contenedor {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 40px;
-  background-color: #f9f9f9;
+/* VARIABLES GLOBALES */
+:root {
+  --color-primario: #007bff;
+  --color-acento: #ff6600;
+  --color-texto: #333;
+  --color-fondo: #f9f9f9;
 }
 
+.new-container {
+  background-color: var(--color-fondo);
+  padding: 40px 0;
+}
+
+.new-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.new-header h1 {
+  font-weight: 900;
+  color: var(--color-texto);
+  letter-spacing: 2px;
+}
+
+/* GRID DINÁMICO */
+.productos-contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 0 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* TARJETA */
 .zapato-card {
   background: white;
-  border-radius: 15px;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 25px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .zapato-card:hover {
-  transform: translateY(-10px); /* Efecto de que flota al pasar el mouse */
+  transform: translateY(-15px);
+  box-shadow: 0 15px 35px rgba(0,123,255,0.15);
+}
+
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--color-acento);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
 }
 
 .zapato-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: contain;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.zapato-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
 }
 
 .precio {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-acento); /* NARANJA */
+  margin-bottom: 20px;
 }
 
 .btn-comprar {
-  background-color: #007bff;
+  background-color: var(--color-primario); /* AZUL */
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 12px 25px;
+  border-radius: 30px;
   cursor: pointer;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .btn-comprar:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .productos-contenedor {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .new-header h1 {
+    font-size: 1.5rem;
+  }
 }

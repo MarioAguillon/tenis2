@@ -1,0 +1,33 @@
+<div class="pedidos-container">
+  <div class="form-card">
+    <h2>Finalizar Pedido</h2>
+    <p>Completa tus datos para recibir tus **DUO SPORT**</p>
+
+    <form (submit)="enviarPedido()">
+      <div class="input-group">
+        <label>Nombre Completo</label>
+        <input type="text" placeholder="Ej. Juan Pérez" required>
+      </div>
+
+      <div class="input-group">
+        <label>Dirección de Envío</label>
+        <input type="text" placeholder="Calle 123 # 45..." required>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="3001234567" required>
+        </div>
+        <div class="input-group">
+          <label>Talla</label>
+          <select>
+            <option>38</option><option>39</option><option>40</option><option>41</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-confirmar">CONFIRMAR COMPRA</button>
+    </form>
+  </div>
+</div>

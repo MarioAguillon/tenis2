@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primario: #007bff;    /* Azul deportivo (puedes cambiarlo por el que quieras) */
+  --color-acento: #ff6600;      /* Naranja para el precio */
+  --color-texto-boton: #ffffff; /* Blanco para el texto del botón */
+  --color-hover: #0056b3;       /* Azul más oscuro para el efecto al pasar el mouse */
+}

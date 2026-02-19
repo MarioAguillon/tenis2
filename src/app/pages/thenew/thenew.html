@@ -1,33 +1,20 @@
-<div class="productos-contenedor">
-  <div class="zapato-card">
-    <img src="img/zapato1.jpg" alt="Zapatilla 1">
-    <div class="info">
-      <p class="precio">$250.000</p>
-      <button class="btn-comprar">Añadir 🛒</button>
-    </div>
-  </div>
+<div class="new-container">
+  <header class="new-header">
+    <h1>LO NUEVO EN DUO SPORT</h1>
+    <p>Descubre la tecnología de punta para tus pies</p>
+  </header>
 
-  <div class="zapato-card">
-    <img src="img/zapato2.jpg" alt="Zapatilla 2">
-    <div class="info">
-      <p class="precio">$470.000</p>
-      <button class="btn-comprar">Añadir 🛒</button>
-    </div>
-  </div>
-
-  <div class="zapato-card">
-    <img src="img/zapato3.jpg" alt="Zapatilla 3">
-    <div class="info">
-      <p class="precio">$320.000</p>
-      <button class="btn-comprar">Añadir 🛒</button>
-    </div>
-  </div>
-
-  <div class="zapato-card">
-    <img src="img/zapato4.jpg" alt="Zapatilla 4">
-    <div class="info">
-      <p class="precio">$510.000</p>
-      <button class="btn-comprar">Añadir 🛒</button>
-    </div>
-  </div>
-</div>iv>
+  <main class="productos-contenedor">
+    @for (item of novedades; track item.id) {
+      <div class="zapato-card">
+        <div class="badge">NUEVO</div>
+        <img [src]="item.img" [alt]="item.nombre">
+        <h3>{{ item.nombre }}</h3>
+        <span class="precio">$ {{ item.precio }}</span>
+        <button class="btn-comprar" (click)='irAPedidos()'>
+          COMPRAR AHORA
+        </button>
+      </div>
+    }
+  </main>
+</div>
