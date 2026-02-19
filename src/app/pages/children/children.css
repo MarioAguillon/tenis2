@@ -1,119 +1,12 @@
-/* Contenedor General */
-.catalog-page {
-  width: 100%;
-  padding: 40px 5%;
-  background-color: #fff;
-}
-
-.catalog-wrapper {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-/* Banner de la izquierda */
-.category-banner {
-  flex: 0 0 300px; /* Tamaño fijo para que no empuje a los demás */
-  text-align: center;
-}
-
-.category-banner img {
-  width: 100%;
-  height: 550px;
-  object-fit: cover; /* Esto evita que la imagen se estire feo */
-  border-radius: 4px;
-}
-
-.category-title {
-  margin-top: 15px;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
-/* Cuadrícula de productos (Derecha) */
-.products-container {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnas exactas */
-  gap: 20px;
-}
-
-/* Tarjeta individual */
-.shoe-card {
-  border: 1px solid #eaeaea;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  transition: 0.3s;
-}
-
-.shoe-card:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Contenedor de la imagen del tenis */
-.shoe-img-box {
-  width: 100%;
-  height: 150px; /* Altura controlada para que no salgan gigantes */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.shoe-img-box img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* Obliga al tenis a caber en el cuadrito */
-}
-
-/* Info y Botones */
-.shoe-price {
-  display: block;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin: 10px 0;
-  text-align: left;
-}
-
-.shoe-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
-}
-
-.btn-add-cart {
-  background: black;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  font-size: 0.7rem;
-  cursor: pointer;
-  border-radius: 2px;
-}
-
-.cart-emoji {
-  font-size: 1.2rem;
-}
-
-/* Responsivo para tablets */
-@media (max-width: 1100px) {
-  .products-container { grid-template-columns: repeat(2, 1fr); }
-  .catalog-wrapper { flex-direction: column; }
-  .category-banner { width: 100%; }
-}/* 1. PALETA DE COLORES - Solo cambia estos códigos para cambiar toda la web */
+/* 1. PALETA DE COLORES */
 :root {
-  --color-primario: #007bff;    /* Azul deportivo */
-  --color-acento: #ff6600;      /* Naranja para el precio */
-  --color-texto-boton: #ffffff; /* Blanco */
-  --color-hover: #0056b3;       /* Azul oscuro */
+  --color-primario: #007bff;    
+  --color-acento: #28a745;      /* Cambié a Verde para que combine con tus capturas, o usa #ff6600 si prefieres naranja */
+  --color-texto-boton: #ffffff; 
+  --color-hover: #0056b3;       
 }
 
-/* 2. ESTRUCTURA (Tu diseño original que sí funciona) */
+/* 2. ESTRUCTURA BASE */
 .catalog-page {
   width: 100%;
   padding: 40px 5%;
@@ -124,57 +17,66 @@
   display: flex;
   gap: 30px;
   align-items: flex-start;
-  max-width: 1300px;
+  max-width: 1400px; /* Un poco más ancho para que quepan bien los 4 */
   margin: 0 auto;
 }
 
+/* 3. BANNER LATERAL - Tamaño fijo y estilizado */
 .category-banner {
   flex: 0 0 300px;
   text-align: center;
+  position: sticky;
+  top: 20px;
 }
 
 .category-banner img {
   width: 100%;
-  height: 550px;
+  height: 600px; /* Altura ideal para cubrir las dos filas de productos */
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .category-title {
   margin-top: 15px;
   font-weight: 800;
   letter-spacing: 3px;
-  color: var(--color-primario); /* Título en azul */
+  color: #333;
+  text-transform: uppercase;
 }
 
+/* 4. CONTENEDOR DE PRODUCTOS (4 COLUMNAS) */
 .products-container {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 4 exactos arriba, 4 abajo */
   gap: 20px;
 }
 
+/* 5. TARJETAS (SHOE CARD) */
 .shoe-card {
-  border: 1px solid #eaeaea;
-  padding: 15px;
+  border: 1px solid #f0f0f0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   background: white;
   transition: 0.3s;
+  border-radius: 12px;
+  min-height: 380px; /* Mantiene todas las tarjetas del mismo alto */
 }
 
 .shoe-card:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transform: translateY(-5px); /* Pequeño salto hacia arriba */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transform: translateY(-5px);
 }
 
 .shoe-img-box {
   width: 100%;
-  height: 150px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .shoe-img-box img {
@@ -183,13 +85,13 @@
   object-fit: contain;
 }
 
-/* 3. APLICACIÓN DE COLORES DINÁMICOS */
-
 .shoe-name {
-  color: #333; /* Mantener nombre legible */
-  font-size: 0.95rem;
+  color: #333;
+  font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  text-align: center;
+  min-height: 40px; /* Para que nombres largos no muevan el resto */
 }
 
 .shoe-price {
@@ -197,8 +99,8 @@
   font-weight: 800;
   font-size: 1.1rem;
   margin: 10px 0;
-  text-align: left;
-  color: var(--color-acento); /* PRECIO NARANJA */
+  text-align: center;
+  color: var(--color-acento); 
 }
 
 .shoe-footer {
@@ -209,15 +111,17 @@
 }
 
 .btn-add-cart {
-  background: var(--color-primario); /* BOTÓN AZUL */
+  background: var(--color-primario);
   color: var(--color-texto-boton);
   border: none;
-  padding: 8px 14px;
-  font-size: 0.75rem;
+  padding: 10px 15px;
+  font-size: 0.8rem;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: 0.3s;
+  flex: 1;
+  margin-right: 10px;
 }
 
 .btn-add-cart:hover {
@@ -225,14 +129,22 @@
 }
 
 .cart-emoji {
-  font-size: 1.3rem;
-  color: var(--color-primario); /* CARRITO AZUL */
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
-/* 4. RESPONSIVO */
-@media (max-width: 1100px) {
+/* 6. RESPONSIVO (Se adapta a tablets y celulares) */
+@media (max-width: 1250px) {
   .products-container { grid-template-columns: repeat(2, 1fr); }
-  .catalog-wrapper { flex-direction: column; }
-  .category-banner { width: 100%; }
+}
+
+@media (max-width: 950px) {
+  .catalog-wrapper { flex-direction: column; align-items: center; }
+  .category-banner { width: 100%; flex: none; position: static; }
+  .category-banner img { height: 300px; }
+  .products-container { width: 100%; grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .products-container { grid-template-columns: 1fr; }
 }

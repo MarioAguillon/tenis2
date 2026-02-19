@@ -9,7 +9,7 @@ export class CartService {
   constructor() {}
 
   agregarProducto(producto: any) {
-    // Agregamos una copia del producto para que no haya problemas de referencia
+    // Guardamos el tenis con un ID único para poder borrarlo luego
     this.items.push({ ...producto, instanceId: Date.now() + Math.random() });
   }
 
@@ -17,16 +17,14 @@ export class CartService {
     return this.items;
   }
 
-  // NUEVA FUNCIÓN: Para eliminar un tenis específico de la lista
   eliminarProducto(producto: any) {
     this.items = this.items.filter(item => item.instanceId !== producto.instanceId);
     return this.items;
   }
 
-  // NUEVA FUNCIÓN: Suma todos los precios
   obtenerTotal() {
     return this.items.reduce((acc, item) => {
-      // Quitamos el punto del precio (ej: "150.000" -> 150000) para poder sumar
+      // Convierte "150.000" en número 150000 para sumar
       const precioNumerico = parseFloat(item.precio.replace(/\./g, ''));
       return acc + precioNumerico;
     }, 0);

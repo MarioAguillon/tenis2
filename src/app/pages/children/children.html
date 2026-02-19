@@ -17,8 +17,8 @@
             <h3 class="shoe-name">{{ tenis.nombre }}</h3>
             <p class="shoe-price">$ {{ tenis.precio }}</p>
             <div class="shoe-footer">
-              <button class="btn-add-cart" (click)="irAPedidos()">AGREGAR</button>
-              <span class="cart-emoji" (click)="irAPedidos()">🛒</span>
+              <button class="btn-add-cart" (click)="irAPedidos(tenis)">AGREGAR</button>
+              <span class="cart-emoji" (click)="irAPedidos(tenis)">🛒</span>
             </div>
           </div>
         </div>
