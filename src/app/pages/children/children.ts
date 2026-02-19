@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service'; 
 
 @Component({
   selector: 'app-children',
@@ -21,9 +22,10 @@ export class ChildrenComponent {
     { id: 8, nombre: 'Adidas Grand Blue', precio: '165.000', img: 'img/ninos8.jpg' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cartService: CartService) {}
 
-  irAPedidos() {
+  irAPedidos(tenis: any) {
+    this.cartService.agregarProducto(tenis); // Esto es lo que falta para que no salga vacío
     this.router.navigate(['/pedidos']);
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-men',
@@ -10,21 +11,22 @@ import { Router } from '@angular/router';
   styleUrl: './men.css'
 })
 export class MenComponent {
-  // 1. ESTA ES LA LISTA. Aquí cambias los datos de cada uno:
+  // Aquí están tus 8 productos con tus marcas originales
   zapatillas = [
-    { id: 1, nombre: 'Adidas Azul Clásicas', precio: '350.000', img: 'img/hombre1.jpg' },
-    { id: 2, nombre: 'Adidas Ultra', precio: '420.000', img: 'img/hombre2.jpg' },
-    { id: 3, nombre: 'Rebook Retro', precio: '280.000', img: 'img/hombre3.jpg' },
-    { id: 4, nombre: 'Reebok Classic', precio: '190.000', img: 'img/hombre4.jpg' },
-    { id: 5, nombre: 'Adidas SuperStar', precio: '550.000', img: 'img/hombre5.jpg' },
-    { id: 6, nombre: 'Adidas Samba', precio: '240.000', img: 'img/hombre6.jpg' },
-    { id: 7, nombre: 'Rebook Club', precio: '310.000', img: 'img/hombre7.jpg' },
-    { id: 8, nombre: 'Rebook Lifestyle', precio: '330.000', img: 'img/hombre8.jpg' }
+    { id: 1, nombre: 'Adidas Running Blue', precio: '250.000', img: 'img/hombre1.jpg' },
+    { id: 2, nombre: 'Reebok Classic White', precio: '280.000', img: 'img/hombre2.jpg' },
+    { id: 3, nombre: 'Adidas Sport Black', precio: '300.000', img: 'img/hombre3.jpg' },
+    { id: 4, nombre: 'Reebok Nano Training', precio: '320.000', img: 'img/hombre4.jpg' },
+    { id: 5, nombre: 'Adidas Grand Court', precio: '240.000', img: 'img/hombre5.jpg' },
+    { id: 6, nombre: 'Rebook Court Advance', precio: '260.000', img: 'img/hombre6.jpg' },
+    { id: 7, nombre: 'Adidas Ultraboost', precio: '450.000', img: 'img/hombre7.jpg' },
+    { id: 8, nombre: 'Reebok Club C 85', precio: '290.000', img: 'img/hombre8.jpg' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cartService: CartService) {}
 
-  irAPedidos() {
+  irAPedidos(tenis: any) {
+    this.cartService.agregarProducto(tenis); 
     this.router.navigate(['/pedidos']);
   }
 }
