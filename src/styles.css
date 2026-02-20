@@ -3,4 +3,74 @@
   --color-acento: #ff6600;      /* Naranja para el precio */
   --color-texto-boton: #ffffff; /* Blanco para el texto del botón */
   --color-hover: #0056b3;       /* Azul más oscuro para el efecto al pasar el mouse */
+}/* Contenedor principal para páginas legales */
+.legal-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Encabezado Azul */
+.legal-header {
+  background-color: #007bff; /* Cambia al azul exacto de tu logo */
+  color: #ffffff;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.legal-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.legal-header p {
+  margin-top: 10px;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+/* Cuerpo del texto */
+.legal-content {
+  padding: 40px;
+  color: #444;
+  line-height: 1.7;
+  font-family: 'Helvetica', Arial, sans-serif;
+}
+
+.legal-content h2 {
+  color: #222;
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-left: 4px solid #007bff;
+  padding-left: 15px;
+}
+
+.legal-content p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.legal-content ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.legal-content li {
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .legal-container {
+    margin: 10px;
+  }
+  .legal-content {
+    padding: 20px;
+  }
 }

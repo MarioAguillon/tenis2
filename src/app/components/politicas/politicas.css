@@ -1,0 +1,39 @@
+.legal-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.legal-header {
+  background-color: #007bff; /* El azul de tu logo */
+  color: white;
+  padding: 20px;
+  text-align: left;
+}
+
+.legal-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.legal-content {
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  color: #444;
+  line-height: 1.5;
+}
+
+.legal-content h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.legal-content p, .legal-content li {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  text-align: justify;
+}

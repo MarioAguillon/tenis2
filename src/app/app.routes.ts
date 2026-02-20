@@ -6,12 +6,18 @@ import { ThenewComponent } from './pages/thenew/thenew';
 import { PedidosComponent } from './pages/pedidos/pedidos';
 import { HomeComponent } from './pages/home/home';
 
+// ESTA ES LA RUTA EXACTA SEGÚN TU IMAGEN:
+import { PoliticasComponent } from './components/politicas/politicas'; 
+import { TerminosComponent } from './components/terminos/terminos';
+
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'lo-nuevo', component: ThenewComponent }, // Coincide con tu routerLink
-  { path: 'hombre', component: MenComponent },      // Coincide con tu routerLink
-  { path: 'mujer', component: WomenComponent },     // Coincide con tu routerLink
-  { path: 'ninos', component: ChildrenComponent },  // Coincide con tu routerLink
+  { path: 'lo-nuevo', component: ThenewComponent },
+  { path: 'hombre', component: MenComponent },
+  { path: 'mujer', component: WomenComponent },
+  { path: 'ninos', component: ChildrenComponent },
   { path: 'pedidos', component: PedidosComponent },
+  { path: 'politicas', component: PoliticasComponent },
+  { path: 'terminos', component: TerminosComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
