@@ -1,0 +1,130 @@
+/* Contenedor Principal */
+.catalogo-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.header-seccion {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo-catalogo {
+    color: #1a4b70;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Grid Responsivo Inteligente */
+.grid-productos {
+    display: grid;
+    /* Crea columnas de mínimo 250px y máximo lo que sobre. Se ajusta solo. */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjeta de Producto */
+.card-tenis {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-tenis:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Etiqueta de Categoría (Hombres, Mujeres, etc) */
+.badge-categoria {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #1a4b70;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.img-container {
+    background: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-tenis img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+/* Animación de la imagen al pasar el mouse */
+.card-tenis:hover img {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.info-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-tenis h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+    height: 2.5em; /* Limita el texto a 2 líneas */
+    overflow: hidden;
+}
+
+.precio {
+    font-size: 1.5rem;
+    color: #1a4b70;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Botón adaptable */
+.btn-comprar {
+    width: 100%;
+    background: #1a4b70;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-comprar:hover {
+    background: #0d2a41;
+}
+
+/* Media Queries para pantallas muy pequeñas (Celulares antiguos) */
+@media (max-width: 480px) {
+    .titulo-catalogo {
+        font-size: 1.8rem;
+    }
+    .grid-productos {
+        grid-template-columns: 1fr; /* Una sola columna en celulares muy pequeños */
+    }
+}

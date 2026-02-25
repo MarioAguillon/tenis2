@@ -1,0 +1,24 @@
+<div class="catalogo-container">
+  <div class="header-seccion">
+    <h1 class="titulo-catalogo">Catálogo DUO SPORT</h1>
+    <p class="subtitulo">Información inyectada desde ProductosService</p>
+  </div>
+
+  <div class="grid-productos">
+    @for (tenis of listaTotal; track tenis.id) {
+      <div class="card-tenis">
+        <div class="badge-categoria">{{ tenis.cat }}</div>
+        <div class="img-container">
+          <img [src]="tenis.img" [alt]="tenis.nombre">
+        </div>
+        <div class="info-container">
+          <h3>{{ tenis.nombre }}</h3>
+          <p class="precio">${{ tenis.precio }}</p>
+          <button class="btn-comprar" (click)='comprar(tenis)'>
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
